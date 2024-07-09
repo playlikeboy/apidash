@@ -19,8 +19,8 @@ class EqualSplitView extends StatefulWidget {
 class _EqualSplitViewState extends State<EqualSplitView> {
   final MultiSplitViewController _controller = MultiSplitViewController(
     areas: [
-      Area(id: "left", min: kMinRequestEditorDetailsCardPaneSize),
-      Area(id: "right", min: kMinRequestEditorDetailsCardPaneSize),
+      Area(id: "left", min: 0.8),
+      Area(id: "right", min: 0.95),
     ],
   );
 
@@ -37,22 +37,32 @@ class _EqualSplitViewState extends State<EqualSplitView> {
           animationEnabled: false,
         ),
       ),
-      child: MultiSplitView(
-        controller: _controller,
-        builder: (context, area) {
-          return switch (area.id) {
-            "left" => widget.leftWidget,
-            "right" => widget.rightWidget,
-            _ => Container(),
-          };
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return MultiSplitView(
+            controller: _controller,
+            // MultiSplitViewController(
+            //   areas: [
+            //     Area(id: "left", size: constraints.maxWidth / 2, min: 240),
+            //     Area(id: "right", size: constraints.maxWidth / 2, min: 260),
+            //   ],
+            // ),
+            builder: (context, area) {
+              return switch (area.id) {
+                "left" => widget.leftWidget,
+                "right" => widget.rightWidget,
+                _ => Container(),
+              };
+            },
+          );
         },
       ),
     );
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
 }
