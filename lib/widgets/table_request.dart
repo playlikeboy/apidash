@@ -103,7 +103,6 @@ class RequestDataTable extends StatelessWidget {
               ),
             ),
           ),
-          kVSpacer40,
         ],
       ),
     );
