@@ -146,7 +146,7 @@ void main() async {
     await navigateByIcon(tester, Icons.auto_awesome_mosaic_outlined);
     await Future.delayed(const Duration(milliseconds: 200));
 
-    /// Check if environment variable is now shown on  hover
+    /// Check if environment variable is now shown on hover
     await gesture.moveTo(tester.getCenter(find.descendant(
         of: find.byType(URLTextField),
         matching: find.text('{{$envVarName}}'))));
