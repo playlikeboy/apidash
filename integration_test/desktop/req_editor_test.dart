@@ -1,11 +1,9 @@
-import 'dart:ui';
-
-import 'package:apidash/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:spot/spot.dart';
 import 'package:apidash/app.dart';
 import 'package:apidash/consts.dart';
+import 'package:apidash/widgets/widgets.dart';
 import '../../test/extensions/widget_tester_extensions.dart';
 import '../test_helper.dart';
 
